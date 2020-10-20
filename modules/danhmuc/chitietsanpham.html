@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MOBIFONE</title>
+    <link rel="stylesheet" href="../../vendor/dist/styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../home/index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>HỆ THỐNG ERP</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Danh muc Menu -->
+            <li class="nav-item">
+                <div class="row">
+                    <aside class="">
+                        <nav class="sidebar-nav">
+                            <ul id="myMenu"></ul>
+                        </nav>
+                    </aside>
+                </div>
+            </li>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+                    style="color:#0f111d;  ">
+                    <h4 style="padding:8px ">QUẢN LÝ KHO</h4>
+                </nav>
+                <!-- End of Main Content -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <!-- code trong day  -->
+                    <div id="main">
+                        <!--bao toan bo khung-->
+                        <div id="content" class="container">
+                            <div class="row">
+                                <div id="right" class="col-md-8">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h2 class=" font-bold">Thông Tin Sản Phẩm</h2>
+                                        </div>
+                                        <br>
+                                        <div class="panel-body">
+                                            <h5>
+                                                <div id="ten_san_pham" class="font-weight-bold"></div>
+                                            </h5>
+                                            <h5>
+                                                <div id="ma_vach" class="font-weight-bold"></div>
+                                            </h5>
+                                            <h5>
+                                                <div id="model" class="font-weight-bold"></div>
+                                            </h5>
+                                            <h5>
+                                                <div id="dvt" class="font-weight-bold"></div>
+                                            </h5>
+                                            <h5>
+                                                <div id="gia" class="font-weight-bold"></div>
+                                            </h5>
+                                            <h5>
+                                                <div id="ten_nganh_hang" class="font-weight-bold"></div>
+                                            </h5>
+                                            <h5>
+                                                <div id="ten_nhan_hang" class="font-weight-bold"></div>
+                                            </h5>
+                                            <h5>
+                                                <div id="ghi_chu" class="font-weight-bold"></div>
+                                            </h5>
+                                        </div>
+                                        <!--end panel-->
+                                    </div> <!-- end right-->
+
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="panel">
+                                        <div id="left" class="col-md-4">
+                                            <div id="id_qrcode"></div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div id="lightbox1" class="row">
+
+                                </div>
+                            </div>
+                            <br>
+                            <div id="upload">
+                                <!-- Button trigger modal -->
+                                <button type="button" style="float: right" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    Upload ảnh
+                                </button>
+                            </div>
+
+                        </div>
+                        <!-- End content -->
+
+                    </div>
+                    <!--upload -->
+                    <br>
+                    <!-- <div id="upload">
+                        
+                        
+                    </div> -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Upload Ảnh</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="file-loading">
+                                        <input id="uploadimg" name="input-img" multiple type="file"  onchange="encodeImagetoBase64(this)" >
+                                        <a hidden  class="link" href="">12312312312</a>
+            </div>
+            <div id="kartik-file-errors"></div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button onclick=upload() type="button" class="btn btn-primary">Upload</button>
+            </div>
+        </div>
+        </div>
+    </div>
+                
+                <!-- Footer -->
+                <!-- End of Footer -->
+            </div>
+            
+            <!-- End of Content Wrapper -->
+        </div>
+        <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Welcome &copy; Your Website</span>
+                    </div>
+                </div>
+            </footer>
+        <!-- End of Page Wrapper
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a> -->
+        <!-- End of Page Wrapper -->
+        <script src="../../vendor/dist/scripts/scripts.js"></script>
+        <script src="../../vendor/dist/scripts/common.js"></script>
+        <script src="../../vendor/dist/scripts/startup.js"></script>
+        <script src="myjs/chitietsanpham.js"></script>
+</body>
+
+</html>

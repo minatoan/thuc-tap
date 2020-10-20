@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MOBIFONE</title>
+
+    <!-- Custom fonts for this template-->
+    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="http://10.151.125.155:8887/dist/styles/styles.css">
+    <link rel="stylesheet" href="res/metismenu/metisMenu.css">
+    <link rel="stylesheet" href="res/metismenu/mm-vertical.css" />
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+
+                </div>
+                <div class="sidebar-brand-text mx-3">ERP</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Quản lý kho hàng</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <!-- Nav Item - Danh muc Menu -->
+            <li class="nav-item">
+                <div class="row">
+                    <aside class="">
+                        <nav class="sidebar-nav">
+                            <ul id="myMenu"></ul>
+                        </nav>
+                    </aside>
+
+                </div>
+            </li>
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+            <script src="renderMenu.js"></script>
+            <script src="res/metismenu/metisMenu.min.js"></script>
+            <script>
+                $(document).ready(function() {
+
+                    $.ajax({
+                        type: "GET",
+                        url: 'http://10.151.125.155:3000/sidebarmenu',
+                        data: "check",
+                        success: function(response) {
+                            //alert(response);
+                            console.log('json:' + JSON.stringify(response));
+                            var items = JSON.stringify(response);
+                            var $menu = $('#myMenu').renderizeMenu(items, {
+                                rootClass: "metismenu",
+                                linkHasMenuClass: "has-arrow",
+                                menuLinkHasSubmenuClass: "has-arrow"
+                            });
+                            $menu.metisMenu();
+                        }
+                    });
+
+                });
+            </script>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"> </nav>
+                <!-- End of Main Content -->
+
+                <div class="container-fluid">
+                    <!-- code trong day  -->
+                </div>
+
+
+                <!-- End content -->
+            </div>
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Welcome &copy; Your Website</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+
+
+    <!-- Bootstrap core JavaScript-->
+    <!-- <script src="vendor/jquery/jquery.min.js"></script>-->
+    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="http://10.151.120.80/page/dist/scripts/scripts.js"></script>
+    <script src="http://10.151.120.80/page/dist/scripts/startup.js"></script>
+    <script src="http://10.151.120.80/page/dist/scripts/common.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MOBIFONE</title>
+    <link rel="stylesheet" href="../../vendor/dist/styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        .table {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../home/index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>HỆ THỐNG ERP</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Danh muc Menu -->
+            <li class="nav-item">
+                <div class="row">
+                    <aside class="">
+                        <nav class="sidebar-nav">
+                            <ul id="myMenu"></ul>
+                        </nav>
+                    </aside>
+                </div>
+            </li>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+                    style="color:#0f111d;  ">
+                    <h4 style="padding:8px ">QUẢN LÝ KHO</h4>
+                </nav>
+                <!-- End of Main Content -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h4 class="h4 mb-0 text-gray-800">CÔNG TY</h4>
+                    </div>
+                    <!-- code trong day  -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="input-group" id="toolbar">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#myModal"><i class="fa fa-plus"> Thêm</i>
+                                </button>
+                            </div>
+                        </div>
+                        <table data-toolbar="#toolbar" data-search="true" data-page-list="[10, 50, 300]"
+                            data-pagination="true" id="table" class="table table-striped" data-toggle="table"
+                            data-sort-order="desc">
+                            <thead class="table-dark" style="background-color: #153f44;color: #ffffff;">
+                                <tr>
+                                    <th data-formatter="STTFormatter" data-sortable="true">STT</th>
+                                    <!-- <th data-field="id" data-sortable="true">ID</th> -->
+                                    <th data-field="tenCongTy" data-sortable="true">Tên công ty</th>
+                                    <th data-field="diaChi" data-sortable="true">Địa chỉ</th>
+                                    <th data-field="sdt" data-sortable="true">SĐT</th>
+                                    <th data-field="idcongty" data-formatter="ThaotacFormatter" data-sortable="true">
+                                        Thao tác</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <!-- End content -->
+            </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Welcome &copy; Your Website</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- Thêm Công ty -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <!-- <div class="modal-body">
+                    <div class="row"> -->
+                <!-- Overflow Hidden -->
+                <div class="card mb-4">
+                    <div class="card-body" style="width: 31rem;">
+                        <form>
+                            <!-- công ty -->
+                            <div class="form-group row">
+                                <div class="col-sm-6 ">
+                                    <label>Tên công ty</label>
+                                    <input type="text" id="txttenCongTy" class="form-control">
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <label>Số điện thoại</label>
+                                    <input type="text" id="txtsdt" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="page-info-item  no-padding">
+                                    <div class="page-info-item-title">
+                                        Địa chỉ
+                                    </div>
+                                    <textarea class="text" id="txtdiaChi" bind="note" style=" width: 100%"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button onclick=them() type="button" class="btn btn-primary" data-dismiss="modal">Thêm</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sua -->
+    <div class="modal" id="myModalsua">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Sửa</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <!-- <div class="modal-body">
+                    <div class="row"> -->
+                <!-- Overflow Hidden -->
+                <div class="card mb-4">
+                    <div class="card-body" style="width: 31rem;">
+                        <form>
+                            <!-- cty -->
+                            <div class="form-group">
+                                <label>ID</label>
+                                <input type="text" id="idcongty" disabled="true" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Tên công ty</label>
+                                <input type="text" id="tenCongTy" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input type="text" id="sdt" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="page-info-item  no-padding">
+                                    <div class="page-info-item-title">
+                                        Địa chỉ
+                                    </div>
+                                    <textarea class="text" id="diaChi" bind="note" style=" width: 100%"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button onclick=luu() type="button" class="btn btn-primary" data-dismiss="modal">Lưu</button>
+                        <!-- <button id="btnthem" type="button" class="btn btn-primary" data-dismiss="modal">Thêm</button> -->
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Wrapper
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a> -->
+    <!-- Thêm ngành hàng -->
+
+    </div>
+
+    <!-- End of Page Wrapper -->
+    <script src="../../vendor/dist/scripts/scripts.js"></script>
+    <script src="../../vendor/dist/scripts/common.js"></script>
+    <script src="../../vendor/dist/scripts/startup.js"></script>
+    <script src="myjs/congty.js"></script>
+</body>
+
+</html>

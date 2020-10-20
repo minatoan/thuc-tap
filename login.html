@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MOBIFONE 9</title>
+    <!-- Custom fonts for this template-->
+    <link href="../../vendor/dist/styles/styles.css" rel="stylesheet" type="text/css">
+    <!-- <link href="toastr/build/toastr.css" rel="stylesheet"> -->
+    <!-- <script src="//code.jquery.com/jquery.min.js"></script> -->
+    <!-- <script src="toastr/toastr.js"></script>-->
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 "><img src="../../vendor/img/login.jpg" alt=""></div>
+
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <br>
+                                        <h1 class="h4 text-gray-900 mb-4">ĐĂNG NHẬP HỆ THỐNG</h1>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="ten_dang_nhap"
+                                                placeholder="Tài khoản">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" id="mat_khau"
+                                                placeholder="Mật khẩu">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Lưu mật
+                                                    khẩu</label>
+                                            </div>
+                                        </div>
+                                        <a onclick="dangnhap()" class="btn btn-primary btn-user btn-block"
+                                            style="color: #fff">
+                                            Đăng nhập
+                                        </a>
+                                        <br />
+                                        <div id='err' style="text-align: center; color: #dc3545"></div>
+                                    </form>
+                                    </div<>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <br>
+            <div class="row" id="contentPanel">
+            </div>
+        </div>
+        <script src="../../vendor/dist/scripts/scripts.js"></script>
+        <script src="../../vendor/dist/scripts/common.js"></script>
+        <!-- <script src="../../vendor/dist/scripts/startup.js"></script> -->
+
+        <script>
+            function dangnhap() {
+                console.log('login...');
+                var info = {}
+                info.ten_dang_nhap = document.getElementById("ten_dang_nhap").value;
+                info.mat_khau = document.getElementById("mat_khau").value;
+                console.log(info.mat_khau)
+                // var url = '10.32.20.43:8080/api/restful/login?username=' + username + '&password=' + password;
+                // var url = getip() + '/login?username=' + ten_dang_nhap + '&password=' + mat_khau;
+                var url = 'https://apisvtt.mobifone9.vn/api/restful/login'
+                console.log('url:' + url);
+                $.ajax({
+                    url: url,
+                    method: "POST",
+                    data: JSON.stringify(info),
+                    contentType: "application/json;charset=utf-8",
+                    success: function (response) {
+                        if (info.ten_dang_nhap == "") {
+                            //alert('Sai tài khoản hoặc mật khẩu')
+                            document.getElementById('err').innerHTML = 'Tài khoản không được bỏ trống ';
+                            toastr.error('Tài khoản không được bỏ trống');
+                        } else if (info.mat_khau == "") {
+                            //alert('Sai tài khoản hoặc mật khẩu')
+                            document.getElementById('err').innerHTML = 'Mật khẩu không được bỏ trống';
+                            toastr.error('Mật khẩu không được bỏ trống');
+                        } else if (response.ten_dang_nhap != info.ten_dang_nhap) {
+                            //alert("Sai tài khoản hoặc mật khẩu")
+                            document.getElementById('err').innerHTML = 'Sai tài khoản hoặc mật khẩu';
+                            toastr.error('Sai tài khoản hoặc mật khẩu');
+                        } else if (response.mat_khau != info.mat_khau) {
+                            //alert("Sai tài khoản hoặc mật khẩu")
+                            document.getElementById('err').innerHTML = 'Sai tài khoản hoặc mật khẩu';
+                            toastr.error('Sai tài khoản hoặc mật khẩu');
+                        } else {
+                            localStorage.setItem("ten", response.ten_dang_nhap);
+                            localStorage.setItem("id", response.id);
+                            window.location.href = "modules/home/index.html";
+
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        bootbox.alert({
+
+                            message: "Đã có lỗi xảy ra",
+                            size: "small"
+                        });
+                    }
+                })
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            $(document).keypress(function (event) {
+                var keycode = event.keyCode ? event.keyCode : event.which;
+                if (keycode == "13") {
+                    console.log(dangnhap());
+                }
+            });
+        </script>
+
+
+</body>
+
+</html>

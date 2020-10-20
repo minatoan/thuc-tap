@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MOBIFONE 9</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="../../vendor/dist/styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body style="background:#F4F7FA">
+    <!-- navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container" style="background-color:#00B69D">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <div class="navbar-header">
+                        <img src="../../vendor/img/header.jpg">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="navbar-holder d-flex align-items-center justify-content-between">
+        <div class="navbar-header">
+        </div>
+    </div>
+    <div class="container">
+        <br>
+        <div class="row" id="contentPanel">
+        </div>
+    </div>
+</body>
+
+<script src="../../vendor/dist/scripts/scripts.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        getmainmenu()
+    });
+
+    function getmainmenu() {
+        console.log('getmainmenu');
+        var urlapi = 'https://apisvtt.mobifone9.vn/api/restful/supernode';
+        $.ajax({
+            type: "GET",
+            url: urlapi,
+            cache: false,
+            //data: params,
+            contentType: "application/x-www-form-urlencoded",
+            success: function(data) {
+                console.log('data:' + JSON.stringify(data));
+                //var mydata = jsonParse(data);
+                var items = data;
+                //var items = JSON.parse(JSON.stringify(items1));
+                var num = items.length;
+                console.log('num=' + num)
+                for (var i = 0; i < num; i++) {
+                    //console.log('items:' + JSON.stringify(items[i]));
+                    var myCol = $('<div class="col-sm-2 col-md-2 pb-2"></div>');
+                    var maubg = 'bg-secondary';
+                    if (items[i].active == 1) {
+                        maubg = 'bg-info';
+                    }
+                    var myPanel = $('<div class="card ' + maubg + ' card-outline-info text-center p-3" id="' + i + 'Panel"><div class="card-block"><a id="myLink" href="#" onclick="golink(' + items[i].id + ',\'' + items[i].active + '\');return false;"><i class="' + items[i].icon_web + ' fa-4x text-white" ></i><p>' + items[i].text + ' </p></a></div></div>');
+                    myPanel.appendTo(myCol);
+                    myCol.appendTo('#contentPanel');
+                }
+            },
+            error: function() { // server couldn't be reached or other error }
+            }
+        });
+    }
+
+    function golink(id, active) {
+        console.log('id=' + id + ';active' + active);
+        if (active == "false") {
+            bootbox.alert('Chức năng chưa sẵn sàng');
+        } else {
+            window.location.href = "indexsidebar.html";
+        }
+    }
+</script>
+
+</html>

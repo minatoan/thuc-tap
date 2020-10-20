@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MOBIFONE</title>
+    <link rel="stylesheet" href="../../vendor/dist/styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <style>
+        .table {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../home/index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>HỆ THỐNG ERP</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Danh muc Menu -->
+            <li class="nav-item">
+                <div class="row">
+                    <aside class="">
+                        <nav class="sidebar-nav">
+                            <ul id="myMenu"></ul>
+                        </nav>
+                    </aside>
+                </div>
+            </li>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+                    style="color:#0f111d;  ">
+                    <h4 style="padding:8px ">QUẢN LÝ KHO</h4>
+                </nav>
+                <!-- End of Main Content -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h4 class="h4 mb-0 text-gray-800">NHÀ CUNG CẤP</h4>
+                    </div>
+                    <!-- code trong day  -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="input-group" id="toolbar">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#mythemncc"><i class="fa fa-plus"> Thêm</i>
+                                </button>                                
+                            </div>
+                        </div>
+                        <table data-toolbar="#toolbar" data-search="true" data-page-list="[10, 50, 300]"
+                            data-pagination="true" id="table" class="table table-striped" data-toggle="table"
+                            data-sort-order="desc">
+                            <thead class="table-dark" style="background-color: #153f44;color: #ffffff;">
+                                <tr>
+                                    <th data-formatter="STTFormatter" data-sortable="true">STT</th>
+                                    <!-- <th data-field="id" data-sortable="true">ID</th> -->
+                                    <th data-field="tenNCC" data-sortable="true">Nhà cung cấp</th>
+                                    <th data-field="diaChi" data-sortable="true">Địa chỉ</th>
+                                    <th data-field="sdt" data-sortable="true">SĐT</th>
+                                    <th data-field="nganHang" data-sortable="true">Ngân hàng</th>
+                                    <th data-field="soTaiKhoan" data-sortable="true">Số tài khoản</th>
+                                    <th data-field="email" data-sortable="true">email</th>
+                                    <th data-field="maSoThue" data-sortable="true">Mã số thuế</th>
+                                    <th data-field="ngayCapNhat" data-sortable="true">Ngày cập nhật</th>
+                                    <th data-field="idNCC" data-formatter="ThaotacFormatter" data-sortable="true">
+                                        Thao tác</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <!-- End content -->
+            </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Welcome &copy; Your Website</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a> -->
+    <!-- Thêm NCC -->
+    <div class="modal" id="mythemncc">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm nhà cung cấp</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+
+                        <!-- Overflow Hidden -->
+                        <div class="card mb-4">
+
+                            <div class="card-body">
+                                <form>
+                                    <!-- kho -->
+                                    <div class="form-group no-padding">
+                                        <div class="col-sn-6">
+                                            <label>Tên nhà cung cấp</label>
+                                            <input type="text" id="txttenNCC" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Số điện thoại</label>
+                                            <input type="text" id="txtsdt" class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <label>Email</label>
+                                            <input type="text" id="txtemail" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Ngân hàng</label>
+                                            <input type="text" id="txtnganHang" class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <label>Số tài khoản</label>
+                                            <input type="text" id="txtsoTaiKhoan" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Mã số thuế</label>
+                                            <input type="text" id="txtmaSoThue" class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <label>Ngày cập nhật</label>
+                                            <input type="date" id="txtngayCapNhat" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="page-info-item  no-padding">
+                                            <div class="page-info-item-title">
+                                                Địa chỉ
+                                            </div>
+                                            <textarea class="text" id="txtdiaChi" bind="note"
+                                                style=" width: 100%"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button onclick="them()" type="button" class="btn btn-success"
+                                    data-dismiss="modal">Thêm</button>
+                                <button type="button" class="btn btn-info" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Footer -->
+            </div>
+            <!-- End of Content Wrapper -->
+        </div>
+    </div>
+
+    <div class="modal" id="mySuancc">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Sửa nhà cung cấp</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+
+                        <!-- Overflow Hidden -->
+                        <div class="card mb-4">
+
+                            <div class="card-body">
+                                <form>
+                                    <!-- kho -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                            <label>ID </label>
+                                            <input type="text" disabled="true" id="idNCC" class="form-control">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Nhà cung cấp</label>
+                                            <input type="text" id="tenNCC" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Số điện thoại</label>
+                                            <input type="text" id="sdt" class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <label>Email</label>
+                                            <input type="text" id="email" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Ngân hàng</label>
+                                            <input type="text" id="nganHang" class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <label>Số tài khoản</label>
+                                            <input type="text" id="soTaiKhoan" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Mã số thuế</label>
+                                            <input type="text" id="maSoThue" class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <label>Ngày cập nhật</label>
+                                            <input type="date" id="ngayCapNhat" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="page-info-item  no-padding">
+                                            <div class="page-info-item-title">
+                                                Địa chỉ
+                                            </div>
+                                            <textarea class="text" id="diaChi" bind="note"
+                                                style=" width: 100%"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button onclick="luu()" type="button" class="btn btn-success"
+                                    data-dismiss="modal">Sửa</button>
+                                <button type="button" class="btn btn-info" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Footer -->
+            </div>
+            <!-- End of Content Wrapper -->
+        </div>
+    </div>
+    </div>
+    <!-- End of Page Wrapper -->
+    <script src="../../vendor/dist/scripts/scripts.js"></script>
+    <script src="../../vendor/dist/scripts/common.js"></script>
+    <script src="../../vendor/dist/scripts/startup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js.map"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js.map"></script>
+    <script src="myjs/nhacungcap.js"></script>
+    
+</body>
+
+</html>

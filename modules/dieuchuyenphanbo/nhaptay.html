@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MOBIFONE</title>
+    <link rel="stylesheet" href="../../vendor/dist/styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <style>
+        .table {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../home/index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>HỆ THỐNG ERP</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Danh muc Menu -->
+            <li class="nav-item">
+                <div class="row">
+                    <aside class="">
+                        <nav class="sidebar-nav">
+                            <ul id="myMenu"></ul>
+                        </nav>
+                    </aside>
+                </div>
+            </li>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+                    style="color:#0f111d;  ">
+                    <h4 style="padding:8px ">QUẢN LÝ KHO</h4>
+                </nav>
+                <!-- End of Main Content -->
+
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card position-relative">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">THÔNG TIN ĐIỀU CHUYỂN</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Thủ kho</label>
+                                            <input type="text" id="id_nguoi_nhan" value="" disabled="true"
+                                                class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 " >
+                                            <label>Ngày chuyển</label>
+                                            <input type="date" id="ngay_thu_hoi" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Từ kho </label>
+                                            <input type="text" id="id_kho_nguoi_dung" disabled="true"
+                                                class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 " >
+                                            <label>Đến kho</label>
+                                            <select id="txt_khocon" class="browser-default custom-select"
+                                                data-live-search="true"></select>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        
+                                        <div class="col-sm-12">
+                                            <label>Mô tả</label>
+                                            <input type="text" id="ma_phieu" class="form-control">
+                                        </div>
+                                        <div class="col-sm-0">
+                                            <input hidden type="text" id="ghi_chu" value="2" disabled="true"
+                                                class="form-control">
+                                        </div>
+                                    </div>                                   
+                                    <button type="button" onclick="taophieu()" class="btn btn-primary"
+                                        style="float:right">Tạo phiếu</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- form chi tiet phieu nhap -->
+                        <div class="col-lg-8">
+                            <div class="card position-relative">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">CHI TIẾT ĐIỀU CHUYỂN PHÂN BỔ</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-3 ">
+                                            <label style="color:#ff625a"> Mã phiếu</label>
+                                            <input type="text" id="id_th" disabled="true" class="form-control">
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <label>Sản phẩm</label>
+                                            <select id="txt_spdc" class="form-control " onChange="(this);"></select>
+                                        </div>
+                                        <div class="col-sm-3 ">
+                                            <label>Số lượng</label>
+                                            <input type="number" id="so_luong" class="form-control">
+                                        </div>
+                                        <div>
+                                            <label style="color: #ffffff">. </label>
+                                            <button type="button" onclick="nhap()"
+                                                class="btn btn-primary form-control"><i
+                                                    class="fa fa-level-down"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-group row">
+                                    </div>
+                                    <!-- table load nhap hang -->
+                                    <table data-toolbar="#toolbar" data-page-list="[10, 50, 300]" data-pagination="true"
+                                        id="table" class="table table-striped" data-toggle="table"
+                                        data-sort-order="desc">
+                                        <thead class="table-dark" style="background-color: #153f44;color: #ffffff;">
+                                            <tr>
+                                                <th data-formatter="STTFormatter" data-sortable="true">STT</th>
+                                                <th data-field="id_th" data-sortable="true">Mô tả</th>
+                                                <th data-field="ten_san_pham" data-sortable="true">Sản phẩm</th>
+                                                <th data-field="so_luong" data-sortable="true">Số lượng</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    </br>
+                                    <a href="taophieu.html" class="btn btn-info" role="button">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- code trong day  -->
+                </div>
+                <!-- End content -->
+            </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Welcome &copy; Your Website</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- End of Page Wrapper -->
+    <script src="../../vendor/dist/scripts/scripts.js"></script>
+    <script src="../../vendor/dist/scripts/common.js"></script>
+    <script src="../../vendor/dist/scripts/startup.js"></script>
+    <script src="myjs/nhaptay.js"></script>
+    <script></script>
+</body>
+
+</html>

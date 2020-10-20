@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MOBIFONE</title>
+    <link rel="stylesheet" href="../../vendor/dist/styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <style>
+        .table {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../home/index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>HỆ THỐNG ERP</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Danh muc Menu -->
+            <li class="nav-item">
+                <div class="row">
+                    <aside class="">
+                        <nav class="sidebar-nav">
+                            <ul id="myMenu"></ul>
+                        </nav>
+                    </aside>
+                </div>
+            </li>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+                    style="color:#0f111d;  ">
+                    <h4 style="padding:8px ">QUẢN LÝ KHO</h4>
+                </nav>
+                <!-- End of Main Content -->
+
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card position-relative">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">THÔNG TIN PHIẾU NHẬP</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 ">
+                                            <label>Người nhập</label>
+                                            <input type="text" id="id_nguoi_nhap" value=""  disabled="true" class="form-control">
+                                        </div>
+                                        
+                                        <div class="col-sm-6">
+                                            <label>Kho </label>
+                                            <input type="text" id="id_kho_nguoi_dung" disabled class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 " id=''>
+                                            <label>Ngày nhập</label>
+                                            <!-- <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                <input class="form-control" id="ngay_nhap" readonly="" type="text">
+                                                <span class="input-group-addon"></span>
+                                            </div> -->
+                                            <input type="date" id="ngay_nhap" class="form-control">
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <label>Nhà cung cấp</label>
+                                            <select id="txt_idnhacc" class="browser-default custom-select"
+                                                data-live-search="true"></select>
+                                        </div>
+                                    </div>  
+                                    <div class="form-group no-padding">
+                                        <label>Mô tả</label>
+                                        <input type="text" id="ma_phieu_nhap" class="form-control">
+                                    </div>                                  
+                                    <button type="button" onclick="taophieu()" class="btn btn-primary"
+                                        style="float:right">Tạo phiếu</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- form chi tiet phieu nhap -->
+                        <div class="col-lg-8">
+                            <div class="card position-relative">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">CHI TIẾT PHIẾU NHẬP</h6>
+                                </div>
+                                <div class="card-body"  >
+                                    <div class="form-group row" >
+                                        <div class="col-sm-3 ">
+                                            <label style="color:#ff625a">ID phiếu nhập</label>
+                                            <input type="text"  id="id_phieu_nhap" disabled class="form-control">
+                                        </div>
+                                        <div class="col-sm-3 ">
+                                            <label>Sản phẩm</label>
+                                            <select id="loadsp" class="form-control " onChange="(this);"></select>
+                                        </div>
+                                        <div class="col-sm-3 " >
+                                            <label>Mã vạch </label>
+                                            <input type="text" id="ma_vach" disabled value=""  class="form-control">
+                                        </div>
+                                        <div class="col-sm-3 ">
+                                            <label>Số lượng</label>
+                                            <input type="number" id="so_luong" class="form-control">
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="input-group row">
+                                            <div class="col-sm-3 ">
+                                                    <label>Giá</label>
+                                                    <input type="text" id="don_gia" class="form-control">
+                                                </div>
+                                        <div class="col-sm-3 ">
+                                            <label>Ngày sản xuất</label>
+                                            <input type="date" id="ngay_san_xuat" class="form-control">
+                                        </div>
+                                        <div class="col-sm-3 ">
+                                            <label>Hạn sử dụng</label>
+                                            <input type="date" id="han_su_dung"  class="form-control">
+                                        </div>
+                                        <!-- <div class="col-sm-2 ">
+                                            <label>Kho</label>
+                                            <input type="text" id="id_kho_sanpham"  class="form-control">
+                                        </div> -->
+                                        <div>
+                                            <label style="color: #ffffff">. </label>
+
+                                            <button type="button" onclick="nhap()"
+                                                class="btn btn-primary form-control"><i
+                                                    class="fa fa-level-down"></i></button>
+                                        </div>
+                                    </div>
+                                </br>
+                                    <!-- table load nhap hang -->
+
+                                    <table 
+                                        id="table_nhap_hang" class="table"  
+                                       >
+                                        <thead class="table-dark" style="background-color: #153f44;color: #ffffff;">
+                                            <tr>
+                                                <th >STT</th>
+                                                <th >Mã phiếu</th>
+                                                <th >Sản phẩm</th>
+                                                <th>NSX</th>
+                                                <th>HSD</th>
+                                                <th>Số lượng</th>
+                                                <th>Thành tiền</th>
+                                                <!-- <th data-field="id" data-formatter="ThaotacFormatter"
+                                                    data-sortable="true">
+                                                    Thao tác</th> -->
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    </br>
+                                    <a href="taophieu.html" class="btn btn-info" role="button">Xem chi tiết</a>
+                                    <!-- <button type="button" onclick="hoanthanh()" class="btn btn-primary"
+                                        style="float:right">Xem chi tiết</button> -->
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- code trong day  -->
+                </div>
+                <!-- End content -->
+            </div>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Welcome &copy; Your Website</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- End of Page Wrapper -->
+    <script src="../../vendor/dist/scripts/scripts.js"></script>
+    <script src="../../vendor/dist/scripts/common.js"></script>
+    <script src="../../vendor/dist/scripts/startup.js"></script>
+    <script src="myjs/nhaptay.js"></script>
+    <script></script>
+</body>
+
+</html>

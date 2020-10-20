@@ -1,0 +1,237 @@
+[{
+    "ID": 1,
+    "text": "Quản lý danh mục",
+    "icon": "fa fa-tasks",
+    "href": "",
+    "children": [{
+            "CREATEDATE": "2019-06-14 08:21:54",
+            "text": "Quản lý ngành hàng",
+            "href": "../danhmuc/nganhhang.html",
+            "NODEID": 20,
+            "ACTIVE": 1,
+            "ORDERS": null,
+            "ID": 111,
+            "icon": ""
+        },
+        {
+            "CREATEDATE": "2019-06-14 08:21:54",
+            "text": "Quản lý nhãn hàng",
+            "href": "../danhmuc/nhanhang.html",
+            "NODEID": 20,
+            "ACTIVE": 1,
+            "ORDERS": null,
+            "ID": 112,
+            "icon": ""
+        },
+        {
+            "CREATEDATE": "2019-06-14 08:21:54",
+            "text": "Quản lý sản phẩm",
+            "href": "../danhmuc/sanpham.html",
+            "NODEID": 20,
+            "ACTIVE": 1,
+            "ORDERS": null,
+            "ID": 113,
+            "icon": ""
+        },
+        {
+            "CREATEDATE": "2019-06-14 08:21:54",
+            "text": "Quản lý NCC",
+            "href": "../danhmuc/nhacungcap.html",
+            "NODEID": 20,
+            "ACTIVE": 1,
+            "ORDERS": null,
+            "ID": 128,
+            "icon": ""
+        },
+        {
+            "CREATEDATE": "2019-06-14 08:21:54",
+            "text": "Quản lý kho sản phẩm",
+            "href": "../danhmuc/khosp.html",
+            "NODEID": 20,
+            "ACTIVE": 1,
+            "ORDERS": null,
+            "ID": 132,
+            "icon": ""
+        },
+        {
+            "CREATEDATE": "2019-06-14 08:21:54",
+            "text": "Quản lý đơn vị",
+            "href": "../danhmuc/donvi.html",
+            "NODEID": 20,
+            "ACTIVE": 1,
+            "ORDERS": null,
+            "ID": 131,
+            "icon": ""
+        }
+        
+    ]
+},
+
+{
+    "ID": 2,
+    "text": "Cảnh báo",
+    "icon": "fa fa-exclamation-triangle",
+    "href": "../canhbao/canhbao.html "
+},
+{
+    "ID": 3,
+    "text": "Nhập hàng",
+    "icon": "fa fa-hand-o-right",
+    "href": "",
+    "children": [{
+        "CREATEDATE": "2019-06-14 08:21:54",
+        "text": "Tạo đơn nhập hàng",
+        "href": "../nhaphang/nhaptay.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 118,
+        "icon": ""
+    }, {
+        "CREATEDATE": "2019-06-14 08:22:21",
+        "text": "Chi tiết nhập hàng",
+        "href": "../nhaphang/taophieu.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 119,
+        "icon": ""
+    }]
+},
+{
+    "ID": 4,
+    "text": "Xuất hàng",
+    "icon": "fa fa-hand-o-left",
+    "href": "",
+    "children": [{
+        "CREATEDATE": "2019-06-14 08:21:54",
+        "text": "Tạo đơn xuất hàng",
+        "href": "../xuathang/nhaptay.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 120,
+        "icon": ""
+    }, {
+        "CREATEDATE": "2019-06-14 08:22:21",
+        "text": "Chi tiết xuất hàng",
+        "href": "../xuathang/taophieu.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 132,
+        "icon": ""
+    }]
+},
+{
+    "ID": 5,
+    "text": "Điều chuyển ngang cấp",
+    "icon": "fa fa-truck",
+    "href": "",
+    "children": [{
+        "CREATEDATE": "2019-06-14 08:21:54",
+        "text": "Tạo đơn điều chuyển",
+        "href": "../dieuchuyenngangcap/nhaptay.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 121,
+        "icon": ""
+    }, {
+        "CREATEDATE": "2019-06-14 08:22:21",
+        "text": "Chi tiết điều chuyển",
+        "href": "../dieuchuyenngangcap/taophieu.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 122,
+        "icon": ""
+    }]
+},
+{
+    "ID": 6,
+    "text": "Điều chuyển phân bố",
+    "icon": "fa fa-plane",
+    "href": "",
+    "children": [{
+        "CREATEDATE": "2019-06-14 08:21:54",
+        "text": "Tạo đơn điều chuyển",
+        "href": "../dieuchuyenphanbo/nhaptay.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 123,
+        "icon": ""
+    }, {
+        "CREATEDATE": "2019-06-14 08:22:21",
+        "text": "Chi tiết phân bố",
+        "href": "../dieuchuyenphanbo/taophieu.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 124,
+        "icon": ""
+    }]
+},
+{
+    "ID": 7,
+    "text": "Thu hồi",
+    "icon": "fa fa-reply-all",
+    "href": "",
+    "children": [{
+        "CREATEDATE": "2019-06-14 08:21:54",
+        "text": "Tạo đơn thu hồi",
+        "href": "../thuhoi/nhaptay.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 125,
+        "icon": ""
+    }, {
+        "CREATEDATE": "2019-06-14 08:22:21",
+        "text": "Chi tiết thu hồi",
+        "href": "../thuhoi/taophieu.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 126,
+        "icon": ""
+    }]
+},
+{
+    "ID": 8,
+    "text": "Quản trị",
+    "icon": "fa fa-user",
+    "href": "",
+    "children": [{
+        "CREATEDATE": "2019-06-14 08:21:54",
+        "text": "Quản lý kho hàng",
+        "href": "../danhmuc/khohang.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 114,
+        "icon": ""
+    },
+    {
+        "CREATEDATE": "2019-06-14 08:21:54",
+        "text": "Quản lý người dùng",
+        "href": "../danhmuc/nguoidung.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 129,
+        "icon": ""
+    },
+    {
+        "CREATEDATE": "2019-06-14 08:21:54",
+        "text": "Quản lý công ty",
+        "href": "../danhmuc/congty.html",
+        "NODEID": 20,
+        "ACTIVE": 1,
+        "ORDERS": null,
+        "ID": 130,
+        "icon": ""
+    }]
+}
+]
